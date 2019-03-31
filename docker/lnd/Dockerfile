@@ -1,7 +1,6 @@
 FROM golang:1.11-alpine as builder
 
 ARG LND_VERSION=v0.5.2-beta
-ARG USER_ID=1000
 
 # Force Go to use the cgo based DNS resolver. This is required to ensure DNS
 # queries required to connect to linked containers succeed.
@@ -20,6 +19,8 @@ RUN git clone https://github.com/lightningnetwork/lnd /go/src/github.com/lightni
 
 # Start a new, final image to reduce size.
 FROM alpine as final
+
+ARG USER_ID=1000
 
 # Copy the binaries and entrypoint from the builder image.
 COPY --from=builder /go/bin/lncli /bin/
