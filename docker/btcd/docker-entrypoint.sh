@@ -27,7 +27,7 @@ if [[ ! -s "${BTCD_DATA}/btcd.conf" ]]; then
     mkdir -p ${BTCD_DATA}; touch ${BTCD_DATA}/btcd.conf
 cat <<-EOF > "${BTCD_DATA}/btcd.conf"
 EOF
-    chown -R 1000:1000 "${BTCD_DATA}/"
+    chown -R bitcoin:bitcoin "${BTCD_DATA}/"
 fi
 
 # Add user parameters to command.

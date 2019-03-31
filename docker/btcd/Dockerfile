@@ -12,6 +12,8 @@ RUN go get -u -v github.com/btcsuite/btcd/...
 # start a new image
 FROM alpine as final
 
+ARG USER_ID=1000
+
 # expose mainnet ports (server, rpc)
 EXPOSE 8333 8334
 
@@ -34,8 +36,8 @@ COPY --from=builder /go/bin/gencerts /bin/
 COPY "docker-entrypoint.sh" .
 
 # create user and data directory
-RUN addgroup -g 1000 bitcoin \
-&& adduser -u 1000 -D -G bitcoin -h /data -s /bin/sh bitcoin
+RUN addgroup -g ${USER_ID} bitcoin \
+  && adduser -u ${USER_ID} -D -G bitcoin -h /data -s /bin/sh bitcoin
   
 RUN apk add --no-cache \
     bash \
