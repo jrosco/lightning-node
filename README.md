@@ -1,9 +1,17 @@
 # Lightning Node Docker Containers Stack
 
+[![Build Status](https://travis-ci.com/jrosco/lightning-node.svg?branch=master)](https://travis-ci.com/jrosco/lightning-node)
+
 Repo for spinning up your own Lightning Node Stack (bitcoind, lnd)
 
-Bitcoin (bitcoind) Docker Build
-
+Bitcoin (bitcoind) Container 
+---
+See [Dockerfile](./docker/bitcoind/Dockerfile)
+### Dockerfile Argument Values
+|Key|Default Values|Info|
+|---|---|---|
+|BITCOIN_VERSION|0.17.0.1|Bitcoin version to use|
+|USER_ID|1000|The run container as bitcoin UID. Make this the same as the local directory UID permissions |
 ---
 
 ```bash
