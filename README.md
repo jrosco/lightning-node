@@ -81,7 +81,7 @@ docker build -t lnd .
 ```
 Build with differnet Lightning version
 ```bash
-docker build --build-arg LND_VERSION=lnd v0.5-beta -t lnd .
+docker build --build-arg LND_VERSION=v0.5-beta -t lnd .
 ```
 Build with different UID
 ```bash
