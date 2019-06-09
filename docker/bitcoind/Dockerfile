@@ -1,6 +1,6 @@
 FROM debian:stretch-slim
 
-ARG BITCOIN_VERSION=0.17.0.1
+ARG BITCOIN_VERSION=0.18.0
 ARG USER_ID=1000
 
 RUN set -ex \
